@@ -24,7 +24,10 @@ class App extends Component{
 
   }
 
-  handleChange = e =>  this.setState({ searchField : e.target.value });  
+  handleChange = SyntheticEvent => {
+    this.setState({ searchField : SyntheticEvent.target.value });
+    console.log(SyntheticEvent.target.value);
+  }   
 
   render(){
 
@@ -35,7 +38,7 @@ class App extends Component{
 
     return (
       <div className="App">
-       
+        <h1>Monster Rolodox</h1>
         <SearchBox placeholder="search a monster" handlerChange={this.handleChange}/>
         <CardList monsters = {filteredMonsters} />
       </div>
